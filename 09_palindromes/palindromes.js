@@ -1,12 +1,10 @@
 const palindromes = function (word) {
-    word = word.toLowerCase()
-    word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
-    word = word.replace(/\s/g, '');
-    let wordReversed = ''
-    for(let i = word.length - 1; i >= 0; i--) {
-        wordReversed += word[i]
-    }
-    return word === wordReversed
+    const alphanumerical = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    let cleanedString = word.toLowerCase().split('').filter((character) => alphanumerical.includes(character)).join('');
+    const reversedString = cleanedString.split('').reverse().join('');
+
+    return reversedString === cleanedString
 };
 
 // Do not edit below this line
